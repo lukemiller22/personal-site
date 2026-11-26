@@ -40,7 +40,7 @@ author: C. S. Lewis
 source: The Abolition of Man
 url: ./reading/items/abolition-of-man.html
 
-> In a sort of ghastly simplicity we remove the organ and demand the function. We make men without chests and expect of them virtue and enterprise. We laugh at honour and are shocked to find traitors in our midst. We castrate and bid the geldings be fruitful.
+> And all the time—such is the tragi-comedy of our situation—we continue to clamour for those very qualities we are rendering impossible. You can hardly open a periodical without coming across the statement that what our civilization needs is more ‘drive’, or dynamism, or self-sacrifice, or ‘creativity’. In a sort of ghastly simplicity we remove the organ and demand the function. We make men without chests and expect of them virtue and enterprise. We laugh at honour and are shocked to find traitors in our midst. We castrate and bid the geldings be fruitful.
 
 ## lewis-no-ordinary-people
 author: C. S. Lewis
@@ -97,3 +97,10 @@ source: Surprised by Joy
 url: ./reading/items/surprised-by-joy.html
 
 > But, of course, what mattered most of all was my deep-seated hatred of authority, my monstrous individualism, my lawlessness. No word in my vocabulary expressed deeper hatred than the word Interference. But Christianity placed at the centre what then seemed to me a transcendental Interferer. If its picture were true then no sort of “treaty with reality” could ever be possible. There was no region even in the innermost depth of one’s soul (nay, there least of all) which one could surround with a barbed wire fence and guard with a notice No Admittance. And that was what I wanted; some area, however small, of which I could say to all other beings, “This is my business and mine only.”
+
+## lewis-seeing-through
+author: C. S. Lewis
+source: The Abolition of Man
+url: ./reading/items/abolition-of-man.html
+
+> But you cannot go on ‘explaining away’ for ever: you will find that you have explained explanation itself away. You cannot go on ‘seeing through’ things for ever. The whole point of seeing through something is to see something through it. It is good that the window should be transparent, because the street or garden beyond it is opaque. How if you saw through the garden too? It is no use trying to ‘see through’ first principles. If you see through everything, then everything is transparent. But a wholly transparent world is an invisible world. To ‘see through’ all things is the same as not to see.
