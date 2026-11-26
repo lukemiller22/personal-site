@@ -102,6 +102,11 @@ main :is(h1, h2, h3) { text-wrap: wrap; }
   white-space: nowrap;
 }
 
+/* Links in running text underline in the text color itself, at full strength, so they read as
+   links at a glance. The faint site-wide underline stays for lists of titles, where being a
+   link is obvious from context. */
+.essay-body a { text-decoration-color: currentColor; }
+
 .note-ref::before { content: ""; position: absolute; inset: -6px -8px; }
 @media (pointer: coarse) { .note-ref::before { inset: -10px -12px; } }
 .note-ref sup { vertical-align: super; line-height: 0; }
