@@ -1,0 +1,44 @@
+.writing-entries { list-style: none; margin: 28px 0 0; padding: 0; }
+
+.writing-item {
+  display: grid;
+  /* The same three columns as the Reading table (title, mark, date), so the development
+     stage sits exactly where Reading's stars do. */
+  grid-template-columns: minmax(0, 1fr) 12% 16%;
+  align-items: baseline;
+  padding: 5px 0;
+}
+
+.writing-item h2 {
+  min-width: 0;
+  margin: 0;
+  padding-right: 16px;
+  font-size: var(--text-row);
+  font-weight: 400;
+  line-height: 24px;
+  overflow-wrap: anywhere;
+}
+
+.writing-item time {
+  color: var(--muted);
+  font-size: var(--text-meta);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Rows stack at the same width as Reading's: title, then the stage and the date. */
+@media (max-width: 620px) {
+  .writing-item { grid-template-columns: auto minmax(0, 1fr); gap: 0 16px; }
+  .writing-item h2 { grid-column: 1 / -1; padding-right: 0; }
+  .writing-item .stage-cell, .writing-item time { line-height: 18px; }
+  .writing-item time { text-align: left; }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .skip-link, .site-footer { display: none; }
+  .writing-item { break-inside: avoid; }
+}

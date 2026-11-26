@@ -1,4 +1,0 @@
-- [[Glossary of Concept Handles]]
-- [[Reading Log]]
-- [[Silva Rerum]]
-- [[Syntopicon]]

@@ -1,0 +1,2 @@
+/* One quotation is chosen when the homepage loads. Its styling is in quotes.css. */
+.home-quote + .home-section { margin-top: 16px; }

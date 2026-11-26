@@ -1,0 +1,72 @@
+/* How a quotation looks: its drop cap, its first words in small capitals, and its
+   attribution. Shared by the homepage quotation and the Commonplace page. */
+.quote-list { list-style: none; margin: 0; padding: 0; }
+
+.quote-figure { margin: 0; font-size: var(--text-h2); }
+.quote-figure blockquote { display: flow-root; margin: 0; }
+.quote-figure blockquote p {
+  margin: 0;
+  color: var(--text);
+  font: 400 1em/1.5 var(--font-serif);
+  letter-spacing: -.006em;
+}
+
+.quote-cap {
+  float: left;
+  display: block;
+  width: auto;
+  height: 3.7em;
+  margin: 0 .28em 0 0;
+  object-fit: contain;
+  shape-image-threshold: .16;
+  shape-margin: .22em;
+}
+
+html[data-theme="light"] .quote-cap--dark,
+html[data-theme="dark"] .quote-cap--light { display: none; }
+
+.quote-item--short .quote-cap {
+  height: 2.7em;
+  margin-right: .2em;
+  shape-margin: .18em;
+}
+
+.quote-opening {
+  font-variant-caps: all-small-caps;
+  font-weight: 500;
+  letter-spacing: .04em;
+}
+
+.quote-figure figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+  margin-top: 12px;
+  font-size: var(--text-meta);
+  line-height: 20px;
+}
+
+.quote-author {
+  color: var(--text);
+  font-size: var(--text-label);
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.quote-figure cite {
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  font-style: italic;
+}
+
+.quote-figure cite a { color: inherit; text-decoration-color: var(--underline); }
+.quote-figure cite a:is(:hover, :focus-visible) { color: var(--link-hover); text-decoration-color: currentColor; }
+
+@media (max-width: 540px) {
+  .quote-cap { height: 3.55em; margin-right: .25em; }
+  .quote-item--short .quote-cap { height: 2.55em; margin-right: .18em; }
+}

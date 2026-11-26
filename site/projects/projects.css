@@ -1,0 +1,50 @@
+.project-list { list-style: none; margin: 28px 0 0; padding: 0; }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-row:last-child { border-bottom: 0; }
+
+.project-year {
+  color: var(--muted);
+  font-size: var(--text-meta);
+  line-height: 22px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.project-details h2 {
+  margin: 0;
+  font-size: var(--text-row);
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* Each project name is a link straight to the project, so it takes the standard
+   link treatment from styles.css (an underline means "this is a link" everywhere
+   on the site) with no extra rules here. */
+
+.project-details p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-base);
+  line-height: 22px;
+}
+
+@media (max-width: 540px) {
+  .project-row { grid-template-columns: 96px minmax(0, 1fr); }
+}
+
+@media (max-width: 380px) {
+  .project-row { grid-template-columns: 80px minmax(0, 1fr); gap: 12px; }
+}
+
+@media print {
+  .project-row { break-inside: avoid; }
+}

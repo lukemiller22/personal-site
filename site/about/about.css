@@ -1,0 +1,5 @@
+/* The About page's content is about/about.md, formatted by the same styles as every
+   detail page (writing/items/article.css). This only trims the gap when the page opens
+   with a heading, so the title-to-text distance matches the essays', which open with
+   a paragraph. */
+.about-page .essay-body > :first-child { margin-top: 0; }

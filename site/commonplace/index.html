@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#FAF8F2" />
+    <title>Commonplace — Luke Miller</title>
+    <script>
+      try {
+        if (localStorage.getItem('luke-theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          document.querySelector('meta[name="theme-color"]').content = '#1C1B1A';
+        }
+      } catch (_) {}
+    </script>
+    <link rel="preload" href="../fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../styles.css?v=4" />
+    <link rel="stylesheet" href="../quotes.css?v=1" />
+    <link rel="stylesheet" href="./commonplace.css?v=2" />
+    <script src="../main.js" defer></script>
+    <link rel="icon" type="image/png" sizes="256x256" href="../favicon/favicon.png?v=2" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-title" href="../index.html" aria-label="Luke Miller, home">Luke Miller</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="../writing/index.html">Writing</a>
+          <a href="../reading/index.html">Reading</a>
+          <a href="../lists/index.html">Lists</a>
+          <a href="../about/index.html">About</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><span class="theme-icon" aria-hidden="true"></span></button>
+      </header>
+
+      <main id="main" class="commonplace-page">
+        <h1>Commonplace</h1>
+
+        <!-- The quotations are read from commonplace/quotes.md, the same file as the homepage quotation. -->
+        <form class="quote-search" role="search" aria-label="Search the quotations">
+          <span class="quote-search__icon" aria-hidden="true"></span>
+          <label class="visually-hidden" for="quote-search-input">Search quotes, authors, and books</label>
+          <input id="quote-search-input" type="search" name="q" placeholder="Search quotes, authors, and books" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" />
+          <button class="quote-search__clear" type="button" aria-label="Clear search" hidden><span aria-hidden="true"></span></button>
+        </form>
+        <p class="quote-status" role="status" aria-live="polite"></p>
+
+        <ul class="quote-list quote-list--archive" aria-label="Quotations"></ul>
+        <div class="quote-sentinel" aria-hidden="true"></div>
+        <noscript><p class="quote-status">The quotations need JavaScript to appear.</p></noscript>
+      </main>
+    </div>
+    <script src="../home-quote-data.js?v=8"></script>
+    <script src="../quote-core.js?v=3"></script>
+    <script src="./commonplace.js?v=3"></script>
+  </body>
+</html>

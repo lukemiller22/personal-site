@@ -1,0 +1,107 @@
+/* The filter buttons are a .choice-group (styles.css). Hidden until reading.js runs,
+   so without JavaScript the table simply sits under the title. */
+.reading-toolbar { margin: 32px 0 16px; }
+.reading-toolbar[hidden], .reading-entries > [hidden] { display: none; }
+.reading-toolbar[hidden] ~ .reading-table-wrap { margin-top: 24px; }
+
+/* Detail titles use the same reading width as essay titles. */
+.reading-record .reading-intro { max-width: var(--measure); }
+
+/* The author follows the title after a dash, quieter than the title, and drops to the next
+   line whole when the two don't fit together. The dates line and the stars under it are
+   the shared detail-page rules in styles.css. */
+.reading-intro .byline { color: var(--muted); white-space: nowrap; }
+
+.reading-body {
+  min-height: 160px;
+  margin-top: 48px;
+}
+.reading-body .reading-placeholder { color: var(--muted); }
+
+.reading-metadata {
+  max-width: var(--measure);
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  line-height: 24px;
+}
+.reading-metadata dl { margin: 0; }
+.reading-metadata dl > div {
+  display: grid;
+  grid-template-columns: 104px minmax(0, 1fr);
+  gap: 12px;
+}
+.reading-metadata dt {
+  color: var(--muted);
+  font-weight: 400;
+}
+.reading-metadata dd { margin: 0; }
+.reading-metadata dd a:is(:hover, :focus-visible) { color: var(--link-hover); }
+
+/* Linked references: the pages that mention this entry, as cards two across the reading
+   column, wrapping into rows down the page. Every card is the same size on every page, so
+   a long title or excerpt is cut short (see the clamps below) instead of making its card
+   taller. No rule above the section, since the publication details already have one. */
+.linked-references {
+  max-width: var(--measure);
+  margin-top: 40px;
+}
+.reference-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.reference-card {
+  /* 1px borders + 16px above and 18px below the text + a 2-line title (48px) + 8px +
+     a 4-line excerpt (80px). */
+  height: 172px;
+  padding: 16px 18px 18px;
+  overflow: hidden;
+}
+.reference-card h3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-row);
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: -.005em;
+}
+/* The whole card is the link: its title stretches over it. */
+.reference-card h3 a { text-decoration: none; }
+.reference-card h3 a::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.reference-card h3 a:focus-visible { outline: none; }
+.reference-card:has(h3 a:focus-visible) { outline: 2px solid var(--link); outline-offset: 2px; }
+.reference-card p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: var(--text-meta);
+  line-height: 20px;
+}
+
+@media (max-width: 540px) {
+  .reading-toolbar { margin-top: 24px; }
+  .reading-body { margin-top: 40px; min-height: 128px; }
+  .reference-cards { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .reading-toolbar, .skip-link, .site-footer { display: none; }
+  .reading-table tr { break-inside: avoid; }
+  .reference-card { break-inside: avoid; }
+}

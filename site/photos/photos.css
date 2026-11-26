@@ -1,0 +1,73 @@
+.photos-page h1 { margin-bottom: 32px; }
+
+/* Photos are filed under a year, then a month. The year heading matches the home page's
+   section headings; the month is the quiet line above its photos. */
+.photo-year + .photo-year { margin-top: var(--section-gap); }
+.photo-year h2 {
+  margin: 0 0 12px;
+  font-size: var(--text-row);
+  font-weight: 600;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.photo-month + .photo-month { margin-top: 48px; }
+.photo-month h3 {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: var(--text-meta);
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.photo-entry {
+  position: relative;
+  max-width: var(--measure);
+  margin: 0 0 56px;
+}
+.photo-entry:last-child { margin-bottom: 0; }
+.photo-entry img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  filter: brightness(var(--photo-brightness));
+}
+.photo-entry figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  line-height: 20px;
+}
+/* The sidenote is the title, with the full date beneath it. */
+.photo-title { display: block; color: var(--text); }
+.photo-date { display: block; }
+.photo-entry:target { scroll-margin-top: 24px; }
+.photo-entry:target img { outline: 2px solid var(--link); outline-offset: 4px; }
+
+/* Match the essay's margin-note threshold and width. */
+@media (min-width: 1200px) {
+  .photo-entry figcaption {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 32px);
+    width: 248px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 540px) {
+  .photos-page h1 { margin-bottom: 24px; }
+  .photo-entry { margin-bottom: 40px; }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .skip-link { display: none; }
+  .photo-entry { break-inside: avoid; }
+  .photo-entry figcaption { position: static; width: auto; margin-top: 12px; }
+}

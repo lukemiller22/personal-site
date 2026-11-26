@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#FAF8F2" />
+    <title>How to Explain a Board or Card Game — Luke Miller</title>
+    <script>
+      try {
+        if (localStorage.getItem('luke-theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          document.querySelector('meta[name="theme-color"]').content = '#1C1B1A';
+        }
+      } catch (_) {}
+    </script>
+    <link rel="preload" href="../../fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../../fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../../styles.css?v=4" />
+    <link rel="stylesheet" href="../../writing/items/article.css" />
+    <link rel="stylesheet" href="../lists.css?v=3" />
+    <script src="../../main.js" defer></script>
+    <script src="../../writing/items/article.js" defer></script>
+    <link rel="icon" type="image/png" sizes="256x256" href="../../favicon/favicon.png?v=2" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-title" href="../../index.html" aria-label="Luke Miller, home">Luke Miller</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="../../writing/index.html">Writing</a>
+          <a href="../../reading/index.html">Reading</a>
+          <a href="../index.html" aria-current="page">Lists</a>
+          <a href="../../about/index.html">About</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Switch to dark mode"><span class="theme-icon" aria-hidden="true"></span></button>
+      </header>
+
+      <main id="main" class="article-page list-detail">
+        <article>
+          <header class="article-header"><h1>How to Explain a Board or Card Game</h1><p class="detail-subtitle"><span class="nobreak">Created <time datetime="2026-11-19">November 19, 2026</time></span>&nbsp;· <span class="nobreak">Updated <time datetime="2026-11-19">November 19, 2026</time></span>&nbsp;· <span class="nobreak">37 words</span></p></header>
+          <div class="essay-body">
+            <ol class="list-preview numbered-preview">
+              <li>This is a game about [theme].</li>
+              <li>It is a [type of game].</li>
+              <li>You are trying to [objective].</li>
+              <li>The game ends [when condition occurs].</li>
+              <li>Prior to that you play by [how turns are structured].</li>
+              <li>Here are the details.</li>
+            </ol>
+          </div>
+        </article>
+      </main>
+    </div>
+  </body>
+</html>

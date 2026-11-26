@@ -1,0 +1,169 @@
+.article-header { max-width: var(--measure); margin-bottom: 40px; }
+
+/* styles.css balances headings, which evens out their lines. On content pages (Writing,
+   Reading, Lists, About) headings fill each line instead and break where they run out of
+   room, so a title is never split early just to balance it. */
+main :is(h1, h2, h3) { text-wrap: wrap; }
+
+.essay-body { position: relative; max-width: var(--measure); }
+
+.essay-body h2 {
+  margin: 48px 0 16px;
+  font-size: var(--text-h2);
+  font-weight: 500;
+  line-height: var(--leading-h2);
+  letter-spacing: -.015em;
+}
+
+.essay-body h3 {
+  margin: 32px 0 16px;
+  font-size: var(--text-prose);
+  font-weight: 500;
+  line-height: var(--leading-h2);
+  letter-spacing: -.01em;
+}
+
+.essay-body h4 {
+  margin: 24px 0 12px;
+  font-size: var(--text-row);
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.prose-block { margin-bottom: 24px; }
+
+.prose-block > p {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-prose);
+  line-height: var(--leading-prose);
+}
+
+.essay-body strong { font-weight: 600; }
+
+.prose-list > :is(ul, ol) {
+  margin: 0;
+  padding-left: 28px;
+  font-family: var(--font-serif);
+  font-size: var(--text-prose);
+  line-height: var(--leading-prose);
+}
+.prose-list li { padding-left: 4px; }
+.prose-list li + li { margin-top: 8px; }
+.prose-list li::marker { color: var(--muted); }
+.prose-list li > :is(ul, ol) { margin: 8px 0 0; padding-left: 24px; }
+
+.prose-quotation {
+  --quotation-inset: 32px;
+  margin: 40px 0;
+}
+.prose-quotation blockquote {
+  margin: 0;
+  padding: 0 var(--quotation-inset) 0 calc(var(--quotation-inset) - 2px);
+  border-left: 2px solid var(--rule);
+  font-family: var(--font-serif);
+  font-size: calc(var(--text-prose) - 1px);
+  line-height: 1.6;
+}
+.prose-quotation blockquote p { margin: 0; }
+.prose-quotation blockquote p + p { margin-top: 24px; }
+.prose-quotation figcaption {
+  margin: 14px var(--quotation-inset) 0;
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  line-height: 20px;
+}
+
+.prose-table-wrap { max-width: 100%; overflow-x: auto; }
+.prose-table-wrap:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.prose-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 24px;
+}
+.prose-table :is(th, td) { padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); vertical-align: top; text-align: left; }
+.prose-table th { font-weight: 600; }
+.prose-table :is(th, td):last-child { padding-right: 0; }
+
+/* Markers are quiet superscripts, not underlined links, with a touch area much larger
+   than the digit (the digit alone is about 6px wide). */
+.note-ref {
+  position: relative;
+  margin-left: 1px;
+  font-family: var(--font-sans);
+  font-size: .68em;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.note-ref::before { content: ""; position: absolute; inset: -6px -8px; }
+@media (pointer: coarse) { .note-ref::before { inset: -10px -12px; } }
+.note-ref sup { vertical-align: super; line-height: 0; }
+
+/* Sidenotes. Narrow screens: under the paragraph they belong to, set off by a thin
+   rule on the left, no filled box. Wide screens: in the right margin (below). */
+.paragraph-notes { margin-top: 12px; }
+
+.sidenote {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  padding: 4px 0 4px 12px;
+  border-left: 2px solid var(--rule);
+  color: var(--muted);
+  font-family: var(--font-sans);
+  font-size: var(--text-meta);
+  line-height: 20px;
+  scroll-margin-top: 20px;
+}
+
+.sidenote + .sidenote { margin-top: 8px; }
+.sidenote--unnumbered { display: block; }
+.sidenote:target, .sidenote:focus { border-left-color: var(--link); }
+.note-number { color: var(--text); font-variant-numeric: tabular-nums; }
+
+.essay-figure { margin: 40px 0 32px; }
+.essay-figure img { display: block; width: 100%; height: auto; }
+.essay-figure figcaption { margin-top: 12px; color: var(--muted); font-size: var(--text-meta); line-height: 20px; }
+
+/* The margin needs room: the column (720) plus 32 + 248 for the note, plus air on
+   the right. 1200px leaves at least 45px even with a classic scrollbar.
+   article.js uses the same number; change them together. */
+@media (min-width: 1200px) {
+  html.sidenotes-ready .paragraph-notes { margin: 0; }
+  html.sidenotes-ready .sidenote {
+    position: absolute;
+    left: calc(100% + 32px);
+    width: 248px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  html.sidenotes-ready .sidenote:target,
+  html.sidenotes-ready .sidenote:focus { outline: 1px solid var(--link); outline-offset: 5px; border-radius: var(--radius-sm); }
+}
+
+@media (max-width: 540px) {
+  .article-header { margin-bottom: 32px; }
+  .essay-body h2 { margin-top: 40px; }
+  .prose-quotation { --quotation-inset: 20px; margin: 32px 0; }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; --surface: #fff; --rule: #DAD8CE; --link-hover: #1A4F8C; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .skip-link, .site-footer { display: none; }
+  .essay-body { min-height: 0 !important; }
+  .paragraph-notes { margin-top: 12px !important; }
+  .sidenote { position: static !important; width: auto !important; padding: 4px 0 4px 12px !important; border-left: 2px solid var(--rule) !important; }
+  .essay-figure, .prose-block { break-inside: avoid; }
+  .prose-table-wrap { overflow: visible; }
+  .prose-table { min-width: 0; }
+  .prose-quotation { break-inside: avoid; }
+}

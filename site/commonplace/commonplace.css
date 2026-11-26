@@ -1,0 +1,124 @@
+/* The Commonplace page: every quotation in commonplace/quotes.md, newest first, under a search bar.
+   How a quotation itself looks is in ../quotes.css, shared with the homepage. */
+
+:root {
+  --search-ring: rgb(32 94 166 / .18);   /* the soft glow around the search bar while you type */
+}
+html[data-theme="dark"] {
+  --search-ring: rgb(102 160 200 / .28);
+}
+
+/* The search bar is a card-like surface that quietly lights up when you click into it:
+   the same paper and hairline as the Lists cards, the typing set in the serif the quotations
+   use, and an italic placeholder, so it reads as part of a book rather than a form. */
+.commonplace-page h1 + .quote-search { margin-top: 32px; }
+
+.quote-search {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: 56px;
+  padding: 0 12px 0 18px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  background: var(--card-background);
+  box-shadow: var(--card-shadow);
+  color: var(--muted);
+  transition: border-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
+}
+.quote-search:hover { border-color: var(--card-border-hover); }
+.quote-search:focus-within {
+  border-color: var(--link);
+  box-shadow: 0 0 0 4px var(--search-ring), var(--card-shadow);
+  color: var(--link);   /* the magnifier takes the link blue */
+}
+
+.quote-search__icon,
+.quote-search__clear > span {
+  display: block;
+  background: currentColor;
+  -webkit-mask: var(--icon) center / contain no-repeat;
+  mask: var(--icon) center / contain no-repeat;
+}
+.quote-search__icon {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round'%3E%3Ccircle cx='8.5' cy='8.5' r='5.75'/%3E%3Cpath d='M13 13l4.5 4.5'/%3E%3C/svg%3E");
+}
+
+.quote-search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: 400 var(--text-prose) / 1.2 var(--font-serif);
+  letter-spacing: -.006em;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.quote-search input::placeholder {
+  color: var(--muted);
+  font-style: italic;
+  opacity: 1;
+}
+.quote-search input::-webkit-search-decoration,
+.quote-search input::-webkit-search-cancel-button { display: none; -webkit-appearance: none; }
+
+/* The clear button is only as large as it looks; its 44px touch area is a ::before. */
+.quote-search__clear {
+  position: relative;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+.quote-search__clear[hidden] { display: none; }
+.quote-search__clear::before { content: ""; position: absolute; inset: -8px; }
+.quote-search__clear > span {
+  width: 12px;
+  height: 12px;
+  margin: auto;
+  --icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='black' stroke-width='1.75' stroke-linecap='round'%3E%3Cpath d='M2 2l8 8M10 2l-8 8'/%3E%3C/svg%3E");
+}
+.quote-search__clear:is(:hover, :focus-visible) { background: var(--surface); color: var(--text); }
+
+/* A line under the bar says how many quotations you are looking at. It keeps its height
+   when empty, so the list never jumps. */
+.quote-status {
+  min-height: 20px;
+  margin: 14px 2px 0;
+  color: var(--muted);
+  font-size: var(--text-meta);
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.quote-list--archive { margin-top: 32px; }
+.quote-list--archive > .quote-item { scroll-margin-top: 24px; }
+.quote-list--archive > .quote-item + .quote-item { margin-top: 56px; }
+.quote-sentinel { height: 1px; }
+
+@media (max-width: 540px) {
+  .quote-search { height: 52px; padding-left: 16px; }
+  .quote-list--archive > .quote-item + .quote-item { margin-top: 48px; }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .skip-link, .quote-search, .quote-status { display: none; }
+  .quote-item { break-inside: avoid; }
+}

@@ -1,0 +1,111 @@
+.lists-intro { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+/* The view switch is a .choice-group (styles.css) of two bare 20px icons. The icons
+   are drawn 2px inside their box, so the group sits 2px out to put the right-hand
+   glyph exactly on the column edge, in line with the dates below and the theme icon. */
+.lists-toolbar { flex: none; margin-right: -2px; }
+.lists-toolbar[hidden], .list-cards[hidden], .list-index[hidden] { display: none; }
+.lists-toolbar button { display: flex; width: 20px; height: 20px; }
+.lists-toolbar svg { display: block; }
+
+/* Cards. The cards keep their order in the HTML (most recently updated first); a
+   two-column grid places each one in the shorter column, so reading order stays
+   close to the DOM order while the columns stay balanced. lists.js measures each
+   card and sets its row span (a 1px row unit); without JavaScript the grid is two
+   plain columns with a 16px gap. */
+.list-cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.list-cards.is-masonry { grid-auto-rows: 1px; grid-auto-flow: dense; row-gap: 0; }
+
+.list-card { padding: 24px 24px 20px; scroll-margin-top: 20px; }
+.list-card h2 { margin: 0; font-family: var(--font-serif); font-size: var(--text-h2); font-weight: 400; line-height: 28px; letter-spacing: -.01em; }
+.list-card h2 a:is(:hover, :focus-visible), .list-index-row h2 a:is(:hover, :focus-visible) { color: var(--link-hover); }
+.list-preview { margin: 20px 0 24px; padding: 0; font-family: var(--font-serif); font-size: var(--text-base); line-height: 24px; }
+.list-preview li + li { margin-top: 8px; }
+.list-dates { margin: 0; padding-top: 12px; border-top: 1px solid var(--rule); color: var(--muted); font-size: var(--text-label); line-height: 16px; }
+
+.log-preview, .plan-preview, .options-preview, .collection-preview, .inventory-preview { list-style: none; }
+/* These rules use `>` so they style a list's own items, not nested sub-items. */
+.log-preview > li, .plan-preview > li, .inventory-preview > li { display: grid; align-items: baseline; grid-template-columns: auto minmax(0, 1fr); gap: 12px; }
+.log-preview time, .plan-state { color: var(--muted); font-family: var(--font-sans); font-size: var(--text-label); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* A log's dates share one column, so the text lines up even when a list mixes full dates
+   (MM-DD-YYYY) with months (MM-YYYY). A browser without subgrid sizes each row on its own. */
+.log-preview { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 12px; }
+.log-preview > li { grid-column: 1 / -1; grid-template-columns: subgrid; }
+.plan-preview > li { grid-template-columns: 32px minmax(0, 1fr); gap: 8px; }
+.options-preview > li { display: flex; align-items: baseline; gap: 12px; }
+.option-box { display: inline-block; flex: 0 0 10px; width: 10px; height: 10px; border: 1px solid var(--muted); border-radius: var(--radius-sm); }
+.collection-preview { list-style: disc; padding-left: 20px; }
+.inventory-preview > li { grid-template-columns: minmax(0, 1fr) auto; }
+.inventory-preview > li > span:nth-child(2) { color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Rankings and numbered plans: the site numbers the items. */
+.numbered-preview { list-style: decimal; padding-left: 24px; }
+.numbered-preview > li { padding-left: 4px; }
+.numbered-preview > li::marker { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* A card shows the first ten items, then a quiet count of the rest. */
+.list-preview.is-truncated { margin-bottom: 8px; }
+.list-more { margin: 0 0 24px; color: var(--muted); font-family: var(--font-sans); font-size: var(--text-label); line-height: 16px; }
+
+/* Nested sub-items appear on detail pages only. In the grid kinds the sub-list sits
+   under the item's text (or, for an inventory, its name) and the grid gap spaces it. */
+.list-nested { margin: 8px 0 0; padding-left: 20px; list-style: disc; }
+.log-preview > li > .list-nested, .plan-preview > li > .list-nested { grid-column: 2; margin-top: 0; }
+.inventory-preview > li > .list-nested { grid-column: 1; margin-top: 0; }
+
+/* Detail pages use the essay measure; the cards remain short previews. */
+.list-detail .list-preview {
+  margin: 40px 0 0;
+  font-size: var(--text-prose);
+  line-height: var(--leading-prose);
+}
+.list-detail .list-preview li + li { margin-top: 12px; }
+.list-detail .option-box { width: 12px; height: 12px; flex-basis: 12px; }
+.list-detail-extra { margin-top: 48px; }
+
+/* List view: the same row rhythm as Writing and Reading. */
+.list-index { list-style: none; margin: 28px 0 0; padding: 0; }
+
+.list-index-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 96px 96px;
+  align-items: baseline;
+  gap: 12px 16px;
+  padding: 5px 0;
+}
+
+.list-index-row h2 { min-width: 0; margin: 0; font-size: var(--text-row); font-weight: 400; line-height: 24px; }
+.list-index-type { color: var(--muted); font-size: var(--text-meta); }
+.list-index-row time { color: var(--muted); font-size: var(--text-meta); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+@media (max-width: 620px) {
+  .list-cards, .list-cards.is-masonry { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; row-gap: 16px; }
+  .list-cards > li { grid-row-end: auto !important; }
+}
+
+@media (max-width: 540px) {
+  .list-card { padding: 20px 20px 16px; }
+}
+
+@media (max-width: 460px) {
+  .list-index-row { grid-template-columns: minmax(0, 1fr) auto; gap: 0 12px; }
+  .list-index-row h2 { grid-column: 1 / -1; }
+  .list-index-type, .list-index-row time { line-height: 18px; }
+}
+
+@media print {
+  html[data-theme] { --page: #fff; --text: #282726; --muted: #6F6E69; --rule: #DAD8CE; }
+  body { background: #fff; }
+  .site-shell { width: 100%; padding: 0; }
+  .site-nav, .theme-toggle, .lists-toolbar, .skip-link, .site-footer { display: none; }
+  .list-cards, .list-cards.is-masonry { display: block; column-count: 2; column-gap: 16px; }
+  .list-cards > li { display: inline-block; width: 100%; margin-bottom: 16px; break-inside: avoid; grid-row-end: auto !important; }
+}

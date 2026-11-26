@@ -1,0 +1,2 @@
+/* Use the same prose and list treatment as About. */
+.index-page .essay-body > :first-child { margin-top: 0; }

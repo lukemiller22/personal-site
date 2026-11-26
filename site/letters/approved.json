@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "source": "User-approved INITIĀLIS designs, 2026-11-11",
+  "letters": {
+    "A": [
+      {
+        "id": "a-p08",
+        "name": "Art Deco"
+      },
+      {
+        "id": "a-p02",
+        "name": "Criblé"
+      },
+      {
+        "id": "a-p12",
+        "name": "Modern ornate"
+      },
+      {
+        "id": "a-r2",
+        "name": "Seeded 2"
+      }
+    ],
+    "B": [
+      {
+        "id": "b-p09",
+        "name": "Gothic gilt"
+      },
+      {
+        "id": "b-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "b-p06",
+        "name": "Wood type"
+      },
+      {
+        "id": "b-r2",
+        "name": "Seeded 2"
+      }
+    ],
+    "C": [
+      {
+        "id": "c-p08",
+        "name": "Pebbles"
+      },
+      {
+        "id": "c-p12",
+        "name": "Kelmscott red"
+      },
+      {
+        "id": "c-p10",
+        "name": "Frost"
+      },
+      {
+        "id": "c-p03",
+        "name": "Victorian filigree"
+      }
+    ],
+    "D": [
+      {
+        "id": "d-p02",
+        "name": "Fraktur cadel"
+      },
+      {
+        "id": "d-p04",
+        "name": "Art Nouveau"
+      }
+    ],
+    "E": [
+      {
+        "id": "e-r2",
+        "name": "Seeded 2"
+      },
+      {
+        "id": "e-p03",
+        "name": "Lombardic penwork"
+      },
+      {
+        "id": "e-p07",
+        "name": "Ruled ground"
+      }
+    ],
+    "F": [
+      {
+        "id": "f-p02",
+        "name": "Puzzle initial"
+      },
+      {
+        "id": "f-p05",
+        "name": "Pointillé"
+      },
+      {
+        "id": "f-r3",
+        "name": "Seeded 3"
+      },
+      {
+        "id": "f-r1",
+        "name": "Seeded 1"
+      }
+    ],
+    "G": [
+      {
+        "id": "g-p05",
+        "name": "Paisley"
+      },
+      {
+        "id": "g-p07",
+        "name": "Wood type"
+      },
+      {
+        "id": "g-r1",
+        "name": "Seeded 1"
+      }
+    ],
+    "H": [
+      {
+        "id": "h-p06",
+        "name": "Art Deco"
+      },
+      {
+        "id": "h-p08",
+        "name": "Coral"
+      },
+      {
+        "id": "h-p02",
+        "name": "Victorian filigree"
+      },
+      {
+        "id": "h-p05",
+        "name": "Art Nouveau"
+      }
+    ],
+    "I": [
+      {
+        "id": "i-r4",
+        "name": "Seeded 4"
+      },
+      {
+        "id": "i-p08",
+        "name": "Wood type"
+      },
+      {
+        "id": "i-p07",
+        "name": "Pebbles"
+      },
+      {
+        "id": "i-p04",
+        "name": "Insular dots"
+      }
+    ],
+    "J": [
+      {
+        "id": "j-p06",
+        "name": "Ruled ground"
+      },
+      {
+        "id": "j-p07",
+        "name": "Art Nouveau"
+      }
+    ],
+    "K": [
+      {
+        "id": "k-p05",
+        "name": "Seed heads"
+      },
+      {
+        "id": "k-r2",
+        "name": "Seeded 2"
+      }
+    ],
+    "L": [
+      {
+        "id": "l-p02",
+        "name": "Insular dots"
+      },
+      {
+        "id": "l-p06",
+        "name": "Wood type"
+      },
+      {
+        "id": "l-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "l-p11",
+        "name": "Engraved"
+      }
+    ],
+    "M": [
+      {
+        "id": "m-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "m-r3",
+        "name": "Seeded 3"
+      },
+      {
+        "id": "m-p03",
+        "name": "Victorian filigree"
+      },
+      {
+        "id": "m-p05",
+        "name": "Pointillé"
+      }
+    ],
+    "N": [
+      {
+        "id": "n-r2",
+        "name": "Seeded 2"
+      },
+      {
+        "id": "n-p07",
+        "name": "Wood type"
+      },
+      {
+        "id": "n-p03",
+        "name": "Insular dots"
+      }
+    ],
+    "O": [
+      {
+        "id": "o-p03",
+        "name": "Lombardic penwork"
+      },
+      {
+        "id": "o-p07",
+        "name": "Ruled ground"
+      },
+      {
+        "id": "o-r1",
+        "name": "Seeded 1"
+      }
+    ],
+    "P": [
+      {
+        "id": "p-p02",
+        "name": "Puzzle initial"
+      },
+      {
+        "id": "p-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "p-r3",
+        "name": "Seeded 3"
+      }
+    ],
+    "Q": [
+      {
+        "id": "q-r3",
+        "name": "Seeded 3"
+      },
+      {
+        "id": "q-p12",
+        "name": "Engraved"
+      },
+      {
+        "id": "q-p11",
+        "name": "Victorian flourish"
+      }
+    ],
+    "R": [
+      {
+        "id": "r-r4",
+        "name": "Seeded 4"
+      },
+      {
+        "id": "r-p09",
+        "name": "Frost"
+      },
+      {
+        "id": "r-p06",
+        "name": "Art Deco"
+      }
+    ],
+    "S": [
+      {
+        "id": "s-r2",
+        "name": "Seeded 2"
+      },
+      {
+        "id": "s-p12",
+        "name": "Victorian flourish"
+      },
+      {
+        "id": "s-p08",
+        "name": "Wood type"
+      },
+      {
+        "id": "s-p11",
+        "name": "Kelmscott red"
+      }
+    ],
+    "T": [
+      {
+        "id": "t-r2",
+        "name": "Seeded 2"
+      },
+      {
+        "id": "t-r3",
+        "name": "Seeded 3"
+      },
+      {
+        "id": "t-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "t-p01",
+        "name": "Blackletter woodcut"
+      },
+      {
+        "id": "t-p06",
+        "name": "Ruled ground"
+      }
+    ],
+    "U": [
+      {
+        "id": "u-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "u-p10",
+        "name": "Coral"
+      },
+      {
+        "id": "u-p12",
+        "name": "Modern ornate"
+      }
+    ],
+    "V": [
+      {
+        "id": "v-p06",
+        "name": "Wood type"
+      },
+      {
+        "id": "v-p07",
+        "name": "Op ripple"
+      },
+      {
+        "id": "v-r1",
+        "name": "Seeded 1"
+      }
+    ],
+    "W": [
+      {
+        "id": "w-r1",
+        "name": "Seeded 1"
+      },
+      {
+        "id": "w-r2",
+        "name": "Seeded 2"
+      },
+      {
+        "id": "w-p11",
+        "name": "Modern ornate"
+      },
+      {
+        "id": "w-p05",
+        "name": "Pointillé"
+      },
+      {
+        "id": "w-p08",
+        "name": "Pebbles"
+      }
+    ],
+    "X": [
+      {
+        "id": "x-p11",
+        "name": "Victorian flourish"
+      },
+      {
+        "id": "x-p07",
+        "name": "Wood type"
+      }
+    ],
+    "Y": [
+      {
+        "id": "y-p08",
+        "name": "Engraved"
+      },
+      {
+        "id": "y-p07",
+        "name": "Ruled ground"
+      },
+      {
+        "id": "y-r1",
+        "name": "Seeded 1"
+      }
+    ],
+    "Z": [
+      {
+        "id": "z-r3",
+        "name": "Seeded 3"
+      },
+      {
+        "id": "z-p11",
+        "name": "Modern ornate"
+      }
+    ]
+  }
+}
