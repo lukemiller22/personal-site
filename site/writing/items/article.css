@@ -127,6 +127,22 @@ main :is(h1, h2, h3) { text-wrap: wrap; }
 .sidenote:target, .sidenote:focus { border-left-color: var(--link); }
 .note-number { color: var(--text); font-variant-numeric: tabular-nums; }
 
+/* Narrow screens, scripting on: a note stays hidden until the reader taps its marker, and
+   a second tap hides it again (article.js flips .is-open and the marker's aria-expanded).
+   CSS does the hiding, so nothing flashes before the script runs. With scripting off, or in a
+   browser without this media feature, every note simply stays under its paragraph.
+   The breakpoint is the margin breakpoint below; article.js uses the same number. */
+@media (max-width: 1199.98px) and (scripting: enabled) {
+  .sidenote:not(.is-open) { display: none; }
+  .sidenote.is-open { border-left-color: var(--link); }
+  .sidenote { scroll-margin-bottom: 20px; }
+  /* A flex gap spaces the notes that are open; a hidden note adds nothing. */
+  .paragraph-notes { display: flex; flex-direction: column; gap: 8px; }
+  .paragraph-notes:not(:has(.is-open)) { display: none; }
+  .sidenote + .sidenote { margin-top: 0; }
+  .note-ref[aria-expanded="true"] { color: var(--link); }
+}
+
 .essay-figure { margin: 40px 0 32px; }
 .essay-figure img { display: block; width: 100%; height: auto; }
 .essay-figure figcaption { margin-top: 12px; color: var(--muted); font-size: var(--text-meta); line-height: 20px; }
@@ -160,7 +176,11 @@ main :is(h1, h2, h3) { text-wrap: wrap; }
   .site-shell { width: 100%; padding: 0; }
   .site-nav, .theme-toggle, .skip-link, .site-footer { display: none; }
   .essay-body { min-height: 0 !important; }
-  .paragraph-notes { margin-top: 12px !important; }
+  .paragraph-notes { margin-top: 12px !important; display: block !important; }
+  /* Paper has no tap, so every note prints, open or not. */
+  .sidenote:not(.is-open) { display: grid !important; }
+  .sidenote--unnumbered:not(.is-open) { display: block !important; }
+  .sidenote + .sidenote { margin-top: 8px !important; }
   .sidenote { position: static !important; width: auto !important; padding: 4px 0 4px 12px !important; border-left: 2px solid var(--rule) !important; }
   .essay-figure, .prose-block { break-inside: avoid; }
   .prose-table-wrap { overflow: visible; }
