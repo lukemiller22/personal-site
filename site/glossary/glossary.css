@@ -25,15 +25,13 @@
   font-size: var(--text-prose);
   line-height: var(--leading-prose);
 }
-.glossary-citations, .glossary-links {
+.glossary-source {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.5;
 }
-.glossary-citations p, .glossary-links p { margin: 8px 0 0; }
+.glossary-source p { margin: 8px 0 0; }
 .glossary-label { font-weight: 600; }
-.glossary-links ul { margin: 8px 0 0; padding-left: 20px; }
-.glossary-links li + li { margin-top: 4px; }
 .glossary-letters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
 .glossary-letters a { padding: 8px 12px; }
 .glossary-entry { overflow-wrap: anywhere; }

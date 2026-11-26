@@ -609,7 +609,8 @@ a.entry-title:is(:hover, :focus-visible) { color: var(--link-hover); text-decora
   }
   .site-title { grid-column: 1; grid-row: 1; justify-self: start; }
   .theme-toggle { grid-column: 2; grid-row: 1; margin-left: 0; }
-  .site-nav { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; gap: 0; margin-left: 0; }
+  /* Left-aligned under the title, so the header shares one edge with the column below. */
+  .site-nav { grid-column: 1 / -1; grid-row: 2; justify-content: flex-start; gap: 24px; margin-left: 0; }
   .site-nav a::before { inset: -10px -8px; }
 
   /* The photo strip scrolls edge to edge: the first photo lines up with the column,
@@ -630,7 +631,8 @@ a.entry-title:is(:hover, :focus-visible) { color: var(--link-hover); text-decora
 }
 
 @media (max-width: 460px) {
-  .entry { flex-direction: column; gap: 0; }
+  /* Staged Writing rows are grids; they keep the 16px gap between the stage and the date. */
+  .entry:not(.entry--staged) { flex-direction: column; gap: 0; }
   .entry time { line-height: 18px; }
 }
 
